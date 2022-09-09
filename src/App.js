@@ -1,8 +1,11 @@
 import './App.css';
 import Table from './Components/Table';
+
 function App() {
-  return (
+  return (<>
     <Table/>
+  </>
+
     
   )
 }

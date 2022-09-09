@@ -1,11 +1,10 @@
 import React from 'react'
-import Action from '../Redux/Action'
-import { useState } from 'react'
+import Action from '../Redux/actions'
 function Table() {
-    const [arr, setArr] = useState([])
+    useSelector() 
     return (
     <>
-    <Action arr={setArr} />
+    <Action />
     </>
     )
 }
