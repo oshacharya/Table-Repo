@@ -1,0 +1,23 @@
+body {
+  background-color: cornsilk;
+}
+h1{
+    margin-left: 20px;
+    text-decoration: underline;
+}
+span{
+    font-weight: bold;
+}
+.tab{
+  border: 2px solid black;
+  border-radius: 6px;
+}
+th,td{
+  border: 2px solid black;
+  border-radius: 6px;
+  padding:10px
+}
+
+.display {
+  margin-left: 40px;
+}

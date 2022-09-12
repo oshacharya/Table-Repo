@@ -1,13 +1,9 @@
-import './App.css';
+import "./App.css";
 import Table from './Components/Table';
 
-function App() {
-  return (<>
-    <Table/>
-  </>
 
-    
-  )
+function App() {
+return <Table/>
 }
 
 export default App;
