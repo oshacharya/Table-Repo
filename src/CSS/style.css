@@ -1,23 +1,46 @@
 body {
   background-color: cornsilk;
+  font-family: Arial, Helvetica, sans-serif;
 }
-h1{
-    margin-left: 20px;
-    text-decoration: underline;
+
+h1 {
+  margin-left: 33px;
+  text-decoration: underline;
 }
-span{
-    font-weight: bold;
+
+span {
+  font-weight: bold;
 }
-.tab{
+
+select {
+  background-color:khaki ;
   border: 2px solid black;
   border-radius: 6px;
+  font-size: large;
+  width: 110px;
+  font-weight: bold;
 }
-th,td{
+
+th,
+td {
+  background-color: palegoldenrod;
   border: 2px solid black;
   border-radius: 6px;
-  padding:10px
+  padding: 10px;
 }
+
+
 
 .display {
   margin-left: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.tab {
+  background-color: dimgray;
+  border: 2px solid black;
+  border-radius: 6px;
+  margin-left: 30px;
+  margin-top: 30px;
 }

@@ -1,10 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-export const getPosts = createAsyncThunk("posts/getPosts", async () => {
-  return fetch("https://jsonplaceholder.typicode.com/users").then((response) =>
-    response.json()
-  );
-});
+import { createSlice } from "@reduxjs/toolkit";
+import { getPosts } from "./API";
 
 const postSlice = createSlice({
   name: "posts",
@@ -25,6 +20,7 @@ const postSlice = createSlice({
     },
   },
 });
+
 export default postSlice.reducer;
 // const initialState = 0;
 

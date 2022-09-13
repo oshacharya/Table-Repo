@@ -3,7 +3,13 @@ import Table from './Components/Table';
 
 
 function App() {
-return <Table/>
+    // function reRender(){
+    //     return <Table/>
+    // }
+return <>
+<Table/>
+{/* <button onClick={reRender}>+</button> */}
+</>
 }
 
 export default App;

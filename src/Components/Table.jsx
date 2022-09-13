@@ -1,23 +1,46 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getPosts } from "../Redux/Reducers";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getPosts } from "../Redux/API";
+import { getUser } from "../Redux/API";
 import "../CSS/style.css";
 
 function Table() {
-  const { posts } = useSelector((state) => state.post);
-  const dispatch = useDispatch();
+  
+  const { posts, loading } = useSelector((state) => state.post);
+  const { user } = useSelector((state) => state.user);
   const [data, setData] = useState(0);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getPosts());
   }, [dispatch]);
 
-  function toD(item) {
-    setData(item.target.value);
-    console.log(data);
-    return(
-    posts.map((a = { data }) => (
+  const toD = (e) => {
+    setData(e.target.value);
+    dispatch(getUser(e.target.value));
+  };
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+  
+  return (
+    <>
+      <h1>User Details</h1>
+
+      <div className="display">
+        <pre>
+          <select name="Details" onChange={toD} value={data}>
+            <option value="0">Select ID</option>
+            {posts.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.id}
+              </option>
+            ))}
+          </select>
+        </pre>
+      </div>
+
       <table className="tab">
         <thead>
           <tr>
@@ -31,38 +54,17 @@ function Table() {
         </thead>
         <tbody>
           <tr>
-            <td>{a.id}</td>
-            <td>{a.name}</td>
-            <td>{a.email}</td>
-            <td>{a.address.city}</td>
-            <td>{a.phone}</td>
-            <td>{a.company.name}</td>
+            <td>{user.id}</td>
+            <td>{user.name}</td>
+            <td>{user.email}</td>
+            <td>{user.address?.city}</td>
+            <td>{user.phone}</td>
+            <td>{user.company?.name}</td>
           </tr>
         </tbody>
       </table>
-    ))
-    )
-  }
-  // const toD = (e) => {
-  //   setData(e.target.value);
-  // };
-
-  return (
-    <>
-      <h1>User Details</h1>
-
-      <div className="display">
-        <pre>
-          <select name="Details" onChange={toD} value={data}>
-            {posts.map((item) => (
-              <option key={item.id} value={item.id}>
-                {item.id}
-              </option>
-            ))}
-          </select>
-        </pre>
-      </div>
     </>
   );
 }
+
 export default Table;
